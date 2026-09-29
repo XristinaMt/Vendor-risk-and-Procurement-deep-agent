@@ -1,6 +1,6 @@
 # NFS AI-Powered Vendor Risk & Procurement Deep Agent
 
-Hackathon PoC for Northstar Financial Services (NFS). The agent assesses **Asteria AI Systems** (or any vendor in
+PoC for Northstar Financial Services (NFS). The agent assesses **Asteria AI Systems** (or any vendor in
 the corpus) as an enterprise GenAI platform. It works the way a controlled review team would:
 
 **Business request → deep-agent plan → 4 specialist agents (RAG + MCP tools) → evidence guardrails →

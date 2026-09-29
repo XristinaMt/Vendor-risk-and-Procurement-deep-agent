@@ -630,7 +630,7 @@ wheels = [
 ]
 
 [[package]]
-name = "hackathon2-team1"
+name = "Vendor_risk_deep_agent"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [

@@ -1,6 +1,6 @@
 
 
-HACKATHON PARTICIPANT HANDOUT 
+HANDOUT 
 
 AI-Powered Vendor Risk & Procurement Deep Agent 
 
