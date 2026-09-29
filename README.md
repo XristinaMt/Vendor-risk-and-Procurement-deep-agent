@@ -150,7 +150,7 @@ Results are written to `evaluation-results/` and pushed to Langfuse as scores.
 ```
 README.md
 architecture/architecture.md        diagrams, guardrail layers, design decisions
-src/hackathon2_team1/
+src/Vendor_risk_deep_agent/
   schemas.py        typed contracts            graph.py        LangGraph workflow (deep agent)
   agents.py         planner/specialists/synth  prompts.py      prompts + baseline control library
   mcp_server.py     NFS MCP server (FastMCP)   mcp_client.py   ToolGateway: RBAC, failover, quarantine, ledger
@@ -184,3 +184,4 @@ All settings come from environment variables or `.env` (see `.env.example`). The
 - Injection detection is pattern-based, backed by quarantine, prompting and deterministic rules. A classifier model could be added.
 - Single-replica state: Chroma, SQLite checkpoints and the record store live on a local volume.
 - Approval thresholds and the other rules are encoded from the supplied policies. A policy change means a code or config change.
+

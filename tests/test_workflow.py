@@ -5,8 +5,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from hackathon2_team1.schemas import VendorAssessmentRequest
-from hackathon2_team1.service import AssessmentService
+from Vendor_risk_deep_agent.schemas import VendorAssessmentRequest
+from Vendor_risk_deep_agent.service import AssessmentService
 
 REQUEST = VendorAssessmentRequest.model_validate_json(
     (Path(__file__).parents[1] / "evaluation" / "requests" / "asteria.json").read_text())
@@ -86,3 +86,4 @@ async def test_input_guardrail_blocks_injected_request(settings, scripted_llm):
     assert snap["status"] == "BLOCKED_BY_INPUT_GUARDRAIL"
     assert "plan" not in snap["values"]
     assert json.dumps(snap["values"]["input_check"]).count("prompt-injection") == 1
+

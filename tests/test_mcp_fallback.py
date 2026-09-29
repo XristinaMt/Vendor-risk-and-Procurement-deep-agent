@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 
-from hackathon2_team1.mcp_client import ToolGateway
+from Vendor_risk_deep_agent.mcp_client import ToolGateway
 
 
 async def test_remote_down_falls_back_to_inprocess_mcp(settings, monkeypatch):
@@ -45,7 +45,7 @@ async def test_remote_http_server_dies_mid_run(settings, monkeypatch):
 
     import uvicorn
 
-    from hackathon2_team1.mcp_server import create_server
+    from Vendor_risk_deep_agent.mcp_server import create_server
 
     with socket.socket() as s:
         s.bind(("127.0.0.1", 0))
@@ -68,3 +68,4 @@ async def test_remote_http_server_dies_mid_run(settings, monkeypatch):
         out = json.loads(await gw.call("search_policy", {"query": "competitive sourcing"}))
         assert out["results"] and gw.ledger.events[-1].transport == "mcp-inprocess-fallback"
         assert gw.degraded_reason
+

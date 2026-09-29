@@ -6,9 +6,9 @@ import json
 
 from mcp.shared.memory import create_connected_server_and_client_session
 
-from hackathon2_team1.config import get_settings
-from hackathon2_team1.mcp_server import create_server
-from hackathon2_team1.rag import load_corpus
+from Vendor_risk_deep_agent.config import get_settings
+from Vendor_risk_deep_agent.mcp_server import create_server
+from Vendor_risk_deep_agent.rag import load_corpus
 
 
 def test_section_chunking_and_metadata():
@@ -63,3 +63,4 @@ async def test_system_of_record_flow(settings):
         err, out = await _call(s, "record_human_decision", {"assessment_id": "ASM-T1", "decision": "REJECT",
                                                             "approver": "Eve"})
         assert not err and out["status"] == "REJECTED"
+

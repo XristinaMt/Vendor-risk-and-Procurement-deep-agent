@@ -17,7 +17,7 @@ from langchain_core.language_models import BaseChatModel
 from langchain_core.messages import AIMessage, HumanMessage, ToolMessage
 from langchain_core.outputs import ChatGeneration, ChatResult
 
-from hackathon2_team1 import config as config_mod
+from Vendor_risk_deep_agent import config as config_mod
 
 
 @pytest.fixture(scope="session")
@@ -41,7 +41,7 @@ def offline_env(tmp_path_factory):
     old = {k: os.environ.get(k) for k in env}
     os.environ.update(env)
     config_mod.get_settings.cache_clear()
-    from hackathon2_team1.rag import KnowledgeStore
+    from Vendor_risk_deep_agent.rag import KnowledgeStore
 
     KnowledgeStore(config_mod.get_settings()).ingest(rebuild=True)
     yield config_mod.get_settings()
@@ -196,7 +196,8 @@ def scripted_llm(monkeypatch):
     def factory(role: str = "default", settings=None):
         return ScriptedChatModel(role=role, behaviour=behaviour)
 
-    import hackathon2_team1.agents as agents_mod
+    import Vendor_risk_deep_agent.agents as agents_mod
 
     monkeypatch.setattr(agents_mod, "get_chat_model", factory)
     return behaviour
+

@@ -108,10 +108,11 @@ def main() -> None:
     elif args.cmd == "api":
         import uvicorn
 
-        uvicorn.run("hackathon2_team1.api:app", host="0.0.0.0", port=args.port)
+        uvicorn.run("Vendor_risk_deep_agent.api:app", host="0.0.0.0", port=args.port)
     elif args.cmd == "assess":
         sys.exit(asyncio.run(_assess(args)))
 
 
 if __name__ == "__main__":
     main()
+

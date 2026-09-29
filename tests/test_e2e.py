@@ -9,8 +9,8 @@ from pathlib import Path
 
 import pytest
 
-from hackathon2_team1 import config as config_mod
-from hackathon2_team1.schemas import VendorAssessmentRequest
+from Vendor_risk_deep_agent import config as config_mod
+from Vendor_risk_deep_agent.schemas import VendorAssessmentRequest
 
 pytestmark = pytest.mark.e2e
 
@@ -25,7 +25,7 @@ def live_settings():
 
 
 async def test_asteria_end_to_end(live_settings):
-    from hackathon2_team1.service import AssessmentService
+    from Vendor_risk_deep_agent.service import AssessmentService
 
     req = VendorAssessmentRequest.model_validate_json(
         (Path(__file__).parents[1] / "evaluation" / "requests" / "asteria.json").read_text())
@@ -47,3 +47,4 @@ async def test_asteria_end_to_end(live_settings):
                                                     "role": "executive_risk_owner", "comments": "e2e"})
     assert snap["status"].endswith("_BY_HUMAN")
     print(snap["values"]["report_markdown"])
+

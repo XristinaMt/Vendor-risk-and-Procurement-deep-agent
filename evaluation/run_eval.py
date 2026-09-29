@@ -20,15 +20,15 @@ from pathlib import Path
 import yaml
 from pydantic import BaseModel
 
-from hackathon2_team1 import observability as obs
-from hackathon2_team1.config import PROJECT_DIR, get_settings
-from hackathon2_team1.guardrails.access import can_sign_off
-from hackathon2_team1.guardrails.decision_rules import decide
-from hackathon2_team1.guardrails.evidence import effective_status, normalize_finding
-from hackathon2_team1.guardrails.input import check_request
-from hackathon2_team1.mcp_client import ToolGateway
-from hackathon2_team1.pdf import write_pdf
-from hackathon2_team1.schemas import (
+from Vendor_risk_deep_agent import observability as obs
+from Vendor_risk_deep_agent.config import PROJECT_DIR, get_settings
+from Vendor_risk_deep_agent.guardrails.access import can_sign_off
+from Vendor_risk_deep_agent.guardrails.decision_rules import decide
+from Vendor_risk_deep_agent.guardrails.evidence import effective_status, normalize_finding
+from Vendor_risk_deep_agent.guardrails.input import check_request
+from Vendor_risk_deep_agent.mcp_client import ToolGateway
+from Vendor_risk_deep_agent.pdf import write_pdf
+from Vendor_risk_deep_agent.schemas import (
     DOMAIN_AGENT,
     Citation,
     Domain,
@@ -167,7 +167,7 @@ def _text(f: dict) -> str:
 async def _judge(values: dict, limit: int = 20) -> tuple[float, str]:
     from langchain_core.messages import HumanMessage, SystemMessage
 
-    from hackathon2_team1.llm import get_chat_model
+    from Vendor_risk_deep_agent.llm import get_chat_model
 
     class Verdict(BaseModel):
         supports: bool
@@ -190,7 +190,7 @@ async def _judge(values: dict, limit: int = 20) -> tuple[float, str]:
 
 
 async def e2e_case(case: dict, judge: bool, out_dir: Path) -> list[Metric]:
-    from hackathon2_team1.service import AssessmentService
+    from Vendor_risk_deep_agent.service import AssessmentService
 
     exp, th = case["expect"], case["expect"].get("thresholds", {})
     req = VendorAssessmentRequest.model_validate_json((EVAL_DIR / case["request"]).read_text())
@@ -369,3 +369,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

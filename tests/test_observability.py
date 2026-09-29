@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from contextlib import contextmanager
 
-from hackathon2_team1 import observability as obs
+from Vendor_risk_deep_agent import observability as obs
 
 
 class FakeLangfuse:
@@ -47,3 +47,4 @@ def test_caught_run_failure_updates_active_span(monkeypatch):
         "level": "ERROR",
         "status_message": "RuntimeError: workflow stopped",
     }]
+

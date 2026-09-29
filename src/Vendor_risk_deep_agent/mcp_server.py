@@ -5,7 +5,7 @@ assessment system of record to agents. Every tool is authorised per caller role
 (``X-NFS-Role`` header over HTTP; bound role for in-process/stdio). In production the role
 would come from an OAuth token (MCP authorization spec) instead of a header.
 
-Run:  python -m hackathon2_team1.mcp_server            (streamable HTTP on :8001/mcp)
+Run:  python -m Vendor_risk_deep_agent.mcp_server            (streamable HTTP on :8001/mcp)
 """
 
 from __future__ import annotations
@@ -206,3 +206,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+

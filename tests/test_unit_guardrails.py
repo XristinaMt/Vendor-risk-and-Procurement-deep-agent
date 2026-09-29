@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
-from hackathon2_team1.guardrails.access import can_sign_off, is_allowed
-from hackathon2_team1.guardrails.decision_rules import compute_domain_risk, decide, required_approvals
-from hackathon2_team1.guardrails.evidence import normalize_finding, quote_in_text
-from hackathon2_team1.guardrails.injection import detect_injection, quarantine_text
-from hackathon2_team1.guardrails.input import check_request
-from hackathon2_team1.schemas import (
+from Vendor_risk_deep_agent.guardrails.access import can_sign_off, is_allowed
+from Vendor_risk_deep_agent.guardrails.decision_rules import compute_domain_risk, decide, required_approvals
+from Vendor_risk_deep_agent.guardrails.evidence import normalize_finding, quote_in_text
+from Vendor_risk_deep_agent.guardrails.injection import detect_injection, quarantine_text
+from Vendor_risk_deep_agent.guardrails.input import check_request
+from Vendor_risk_deep_agent.schemas import (
     Citation,
     DataClassification,
     Domain,
@@ -142,3 +142,4 @@ def test_tool_rbac():
     assert not is_allowed("ai_governance_agent", "record_assessment")
     assert is_allowed("executive_risk_owner", "record_human_decision")
     assert can_sign_off("executive_risk_owner", "HIGH") and not can_sign_off("vendor_risk_manager", "HIGH")
+
